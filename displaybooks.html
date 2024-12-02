@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <script>
+        // JSON data
+        const books = [
+            {
+                "title": "The Great Gatsby",
+                "author": "F. Scott Fitzgerald",
+                "publicationYear": 1925,
+                "genres": ["Fiction", "Classics"]
+            },
+            {
+                "title": "To Kill a Mockingbird",
+                "author": "Harper Lee",
+                "publicationYear": 1960,
+                "genres": ["Fiction", "Coming-of-Age"]
+            }
+        ];
+
+        // Function to display book details
+        function displayBookDetails() {
+            // (a) Title of the first book
+            document.getElementById("firstBookTitle").innerText = books[0].title;
+
+            // (b) Author of the second book
+            document.getElementById("secondBookAuthor").innerText = books[1].author;
+
+            // (c) Genres of all books
+            const genresList = new Set(); // To avoid duplicates
+            books.forEach(book => book.genres.forEach(genre => genresList.add(genre)));
+            document.getElementById("allGenres").innerText = Array.from(genresList).join(", ");
+        }
+
+        // Display the book details after the page loads
+        window.onload = displayBookDetails;
+    </script>
+</head>
+<body>
+    <h1>Book Details</h1>
+    <p><strong>Title of the First Book:</strong> <span id="firstBookTitle"></span></p>
+    <p><strong>Author of the Second Book:</strong> <span id="secondBookAuthor"></span></p>
+    <p><strong>Genres of All Books:</strong> <span id="allGenres"></span></p>
+</body>
+</html>
